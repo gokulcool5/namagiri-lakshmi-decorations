@@ -271,6 +271,10 @@ i{
     }
 }
 @media (min-width:230px) and (max-width:575px){    
+    .caro{
+        margin-left: 10%;
+        width: 80%;
+    }
     #item{
         border-bottom:2px solid  rgb(255, 153, 0);
         border-right: none;
