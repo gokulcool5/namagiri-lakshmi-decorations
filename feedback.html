@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FeedBack</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="style2.css">
+<script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+</script>
+<script>
+    
+    function checkDetails() {
+                var field1 = $("#fname").val();
+                var field2 = $("#date").val();
+                var field3 = $("#text").val();
+               
+                function display() {  
+                    if(document.getElementById('star1').checked) { 
+                         
+                    } 
+                    else if(document.getElementById('star2').checked) { 
+                          
+                    } 
+                    else if(document.getElementById('star3').checked) { 
+                           
+                    } 
+                    else if(document.getElementById('star4').checked) { 
+                        
+                    } 
+                    else if(document.getElementById('star5').checked) { 
+                       
+                    } 
+                    else { 
+                        return false;
+                    } 
+                } 
+            
+              
+                if(display() == ""){
+                    alert("Please Give Your Rating");
+                    return false;
+                };
+				if(field1 == ""){
+					alert('Please Fill Your Name');
+					document.getElementById("fname").focus();
+					return false;
+				}
+				if(field2 == ""){
+					alert('Please Fill the Date');
+					document.getElementById("date").focus();
+					return false;
+				}
+				if(field3 == "" ){
+					alert('Please Fill Your Message');
+					document.getElementById("text").focus();
+					return false;
+                }               
+                return SubForm();
+            }
+    function SubForm (){
+        $.ajax({
+            url:'https://api.apispreadsheets.com/data/2774/',
+            type:'post',
+            data:$("#myForm").serializeArray(),
+            success: function(){
+               alert("Form Data Submitted :) \n Please press \"OK\" Button");
+                document.forms[0].stars.value= "";
+                document.forms[0].fname.value= "";
+                document.forms[0].text.value="";
+                document.getElementById('date').value = "";
+                document.getElementById('star1').checked = false;
+                document.getElementById('star2').checked = false;
+                document.getElementById('star3').checked = false;
+                document.getElementById('star4').checked = false;
+                document.getElementById('star5').checked = false; 
+                alert("THANK YOU FOR YOUR VALUABLE FEEDBACK!!!");     
+            },
+            error: function(){
+            alert("There was an error :(")
+            }
+        });
+    }
+</script>   
+</head>
+<body>
+    <a href="index.html"><button type="button" id="back" >Back To Home<br></button></a>
+    <div class="full">
+        <p>Enter Your Ratings</p>
+        <form id="myForm" >
+            <div id="con">              
+                <div class="rating">
+                    <input type="radio" class="star" name="stars" id="star1" value="5" required><label for="star1"></label>
+                    <input type="radio" class="star" name="stars" id="star2" value="4" required><label for="star2"></label>
+                    <input type="radio" class="star" name="stars" id="star3" value="3" required><label for="star3"></label>
+                    <input type="radio" class="star" name="stars" id="star4" value="2" required><label for="star4"></label>
+                    <input type="radio" class="star" name="stars" id="star5" value="1" required><label for="star5"></label>
+                </div>    
+            </div>           
+            <div class="center">
+                <div class="input"><label>Name:</label><input type="text" placeholder="Enter your Name" id="fname" name="username" ></div>
+                <br>
+                <label>Date:</label>                
+                <input type="date" id="date" name="date" /> <br/>
+                <textarea name="message" id="text" placeholder="Enter Your Text " cols="25" rows="6" ></textarea>
+                <br>
+                <button id="str" type="reset"> Reset</button><br>
+            </div>
+        </form>
+        <button id="str" type="submit" onclick="checkDetails()"> Submit</button>        
+    </div>
+    <a href="https://script.google.com/macros/s/AKfycbzvH-LSpxVpbttpwccC_MUsf97ga6RVJ7FcMD6t_QQ/dev"><button type="button" class="other">Reviews of other's</button></a>
+</body>
+</html>

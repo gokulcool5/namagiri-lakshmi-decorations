@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <style>
+        form{
+            font-size: x-large;
+            font-weight: bolder;
+            border: 7px double black;
+            border-radius: 15px;
+            display: inline-block;
+            padding: 80px 60px;
+            margin-top: 12%;
+            margin-left: 35%;
+            background: royalblue;
+            color: white;
+            background: linear-gradient(30deg,white,white,rgb(235, 69, 69) ,rgb(58, 58, 253),royalblue,skyblue);
+            background-size: 400% 400%;
+            animation:gradient 40s ease infinite;
+        }
+        i{
+            position: relative;
+            margin-left: 4px;
+        }
+        h1{
+            margin-top: 12.4%;
+            margin-left: 36%; 
+            position: absolute;
+            color: white;
+        }
+        input{
+            border-radius: 8px;
+            width: 200px;
+            height: 25px;
+        }
+        button{
+            background-color: yellowgreen;
+            padding: 5px 20px;
+            border-radius: 10px;
+            font-weight: bolder;
+        }
+        button:hover{
+            animation: vibrate 1s ease infinite;
+            background-color: greenyellow;            
+        }
+        #link{
+            display: none;
+            position: absolute;
+            margin-top: 10px;
+            margin-left:50% ;
+            border: 2px solid black;
+            border-radius: 20%;
+            padding: 5px 20px;
+            color: black;
+            background-color: yellowgreen;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+        #link:hover{
+            background-color: chartreuse;
+        }
+        #back{
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 10px;
+            animation: none;
+            border: 2px solid black;
+            border-radius: 20%;
+            padding: 5px 20px;
+            color: black;
+            background-color: yellowgreen;
+            font-weight: bolder;
+            text-decoration: none;
+        }
+        #back:hover{
+            background-color: chartreuse;
+        }
+
+        @keyframes vibrate {
+            0%{
+                transform: rotate(5deg);
+            }
+            50%{
+                transform: rotate(-5deg);
+            }
+            100%{
+                transform: rotate(5deg);
+            }
+        }
+        body{
+            background: linear-gradient(310deg,white,white,rgb(235, 69, 69) ,rgb(58, 58, 253),royalblue,skyblue,lightgreen,yellowgreen,red,orange,white,white);
+            background-size: 400% 400%;
+            animation:gradient 50s ease infinite;
+        }
+        @keyframes gradient
+        {
+            0%{
+                background-position: 0% 50%;
+            }
+            50%{
+                background-position: 100% 50%;
+            }
+            100%{
+                background-position: 0% 50%;
+            }
+        }
+        @media (min-width:501px) and (max-width:700px){    
+        form {
+            margin-top: 18%;
+            margin-left: 30%;
+            padding: 50px 30px;
+            font-size: large;
+        }
+        input{
+            width: 150px;
+
+        }    
+        h1{
+            font-size: large;
+            margin-top: 21%;
+            margin-left: 33%;
+        }    
+        }
+        @media (min-width:301px) and (max-width:500px){    
+        form {
+            margin-top: 20%;
+            margin-left: 20%;
+            padding: 25px 5px;
+            font-size: large;
+        }
+        input{
+            width: 180px;
+
+        }    
+        h1{
+            font-size: x-large;
+            margin-top: 21%;
+            margin-left: 22%;
+        }    
+        }
+        @media (min-width:230px) and (max-width:300px){    
+        form {
+            margin-top: 20%;
+            margin-left: 10%;
+            padding: 25px 5px;
+            font-size: small;
+        }
+        input{
+            width: 150px;
+
+        }    
+        h1{
+            font-size: large;
+            margin-top: 22.5%;
+            margin-left: 13.2%;
+        }    
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" id="back">Back</a>
+    <h1>User Login :</h1>
+    <form method="POST">        
+        <label>Name : </label><br><input type="text" name="fname" id="name" placeholder="Enter Your Name"/><br><br>
+        <label>Password : </label><br><input type="password" name="password" id="password" placeholder="Enter Your Password"/><i class="far fa-eye" id="togglePassword"></i><br><br>  
+        <button type="button"  onclick="return checkfinished()">Submit</button>
+        <button type="reset">reset</button>
+    </form><br>
+    <a href="link.html" id="link">link</a>
+    <script>
+        var togglePassword = document.querySelector('#togglePassword');
+        var password = document.querySelector('#password');
+        togglePassword.addEventListener('click', function (e) {
+        var type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('fa-eye-slash');
+        });
+        
+        function check(){
+            var name = document.getElementById("name").value;
+            var pwd = document.getElementById("password").value;
+            if (name == "gokul" && pwd == "gokul"){               
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function checkfinished(){
+            if (check() == true){
+                document.getElementById("link").style="display:inline";
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

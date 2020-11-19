@@ -1,0 +1,153 @@
+/* feedback */
+body{
+    background: linear-gradient(to right, blue, skyblue,blue);
+    font-weight: bolder;
+    font-size: 20px;
+}
+#back{
+    padding: 10px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    border:1px solid black;
+}
+#back:hover{
+    background: black;
+    color:#fff;
+    box-shadow: 0px 0px 5px 2px black;
+    border:1px solid white;
+    transform: scale(1.07,1.07);
+}
+.other{
+    background: greenyellow;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+.other:hover{
+    background: linear-gradient(to left,lightgreen ,yellowgreen,yellow);
+}
+.full{
+    margin-top: 5%;
+    border: 2px solid black;
+    padding: 50px 50px;
+    position: absolute;
+    left: 40%;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(to right,red,orange,red);
+}
+#con{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.rating{
+    position: relative;
+    transform: rotateY(180deg);
+    display: flex;
+}
+.rating input{
+    display: none;
+}
+.rating label{
+    display: block;
+    cursor: pointer;
+    width: 40px;
+    background: linear-gradient(black,white,black);
+}
+.rating label:before{
+    content: '\2605';
+    font-size: 50px;
+    display: block;
+    position: relative;
+    color: #101010;
+}
+.rating label:after{
+    content: '\2605';
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    color: skyblue;
+    background: linear-gradient(yellow,green , yellow);
+    top:0;
+    opacity: 0;
+    transition: .2s;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+.rating label:hover:after,
+.rating label:hover ~ label:after,
+.rating input:checked ~ label:after{
+    opacity: 1;
+}
+.center{
+    margin-top: 10%;
+    position: relative;
+    display: grid;
+    grid-gap: 5px;
+    justify-content: center; 
+}
+#str{
+    width: 70px;
+    padding: 5px 10px;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 65% 20% 20% 20%;
+    background: linear-gradient(160deg,green,yellow,green);
+    cursor: pointer;
+    translate: 0.4s;
+}
+#str:hover{
+    font-weight: bold;
+    background: linear-gradient(160deg,yellow,green,yellow);
+    box-shadow: 2px 2px 5px 1px green;
+    transform: scale(1.1,1.1);
+    color:white;
+}
+input{
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+textarea{
+    border-radius: 5px;
+    border: 1px solid black;
+}
+@media (min-width:500px) and (max-width:700px){
+    .center{
+        margin-top: 15%;
+    }
+}
+@media (min-width:400px) and (max-width:550px){
+    .full{
+        padding: 10px 10px;
+    }
+}
+@media (min-width:400px) and (max-width:499px){
+    .center{
+        margin-top: 20%;
+    }
+}
+@media (min-width:300px) and (max-width:399px){
+    .center{
+        margin-top: 25%;
+    }
+    .full{
+        left: 20%;
+        padding: 10px 10px;
+    }
+}
+@media (min-width:251px) and (max-width:299px){
+    .full{
+        left: 7%;
+        padding: 10px 10px;
+    }
+}
+@media (min-width:230px) and (max-width:250px){
+    .center{
+        margin-top: 35%;
+    }
+    .full{
+        left: 3%;
+        padding: 5px 5px;
+    }
+}
