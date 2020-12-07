@@ -52,7 +52,7 @@
 <body>
     <a href="index.html" id="back">Back</a><br><br>
     <iframe name="hidden_iframe" id="hidden_iframe" style="display: none;" onload="if(submitted) {window.location='link.html'; } "></iframe>
-    <form id="myLinkForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfRlCu48laQfVw-VhMwWQrTFJ7AMYIGLBXtiasDUZ06QrSc0w/formResponse" method="POST" target="hidden_iframe">
+    <form id="myLinkForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfRlCu48laQfVw-VhMwWQrTFJ7AMYIGLBXtiasDUZ06QrSc0w/formResponse" method="POST" target="hidden_iframe" onsubmit="checkPhoneNumber()">
         <label>Mr Name :</label><br><input type="text" id="bname" name="entry.877163312" placeholder="Enter the Name" required/><br><br>
         <label>Mrs Name :</label><br><input type="text" id="gname" name="entry.1900571982" placeholder="Enter the Name" required/><br><br>
         <label>Date :</label><br><input type="date" id="date" name="entry.1852545914" required/><br><br>
@@ -60,7 +60,7 @@
         <label>E-Mail Id :</label><br><input type="email" name="entry.1562290326" id="mail" placeholder="Enter the E-Mail ID" required/><br><br>
         <label>Message :</label><br><textarea type="text" id="message" name="entry.1440890964" placeholder="Enter the Message" required></textarea><br><br>
         <button type="button" onclick="defaults()">Default Msg</button><br><br>
-        <button type="submit" onsubmit="checkPhoneNumber()">Submit</button>
+        <button type="submit" onclick="checkPhoneNumber()">Submit</button>
         <button type="reset">Reset</button>
     </form>
     <script>
